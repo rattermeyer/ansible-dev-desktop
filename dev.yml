@@ -16,6 +16,8 @@
     - intellij
   vars:
     user: "dev"
+    user_name: "Richard Attermeyer"
+    user_email: "richard.attermeyer@gmail.com"
     # password: pleasechange --> generate e.g. using mkpasswd --method=SHA-512
     password: "$6$R/NgeKnN$Nlq.TC54GwBbH3oWhonjLDXeGMH56JpnpIvXLzHNHUfvl7/YK8.dxf6BaASaJJh1mWr20OuS9kMEexiLbZ9xQ/"
     home_base: "/home"
