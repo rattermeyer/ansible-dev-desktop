@@ -8,12 +8,12 @@
     - user: name="{{user}}" shell=/bin/bash password="{{password}}" groups=admin
   roles:
     - unity-customization
-#    - dev-tools
-#    - maven
-#    - vim 
-#    - nvm
-#    - gvm
-#    - intellij
+    - dev-tools
+    - maven
+    - vim 
+    - nvm
+    - gvm
+    - intellij
   vars:
     user: "dev"
     user_name: "Richard Attermeyer"
