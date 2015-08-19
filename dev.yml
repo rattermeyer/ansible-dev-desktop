@@ -14,6 +14,11 @@
     - nvm
     - gvm
     - intellij
+<<<<<<< HEAD
+=======
+    - virtualbox-guest
+    - xubuntu
+>>>>>>> d29c63d... initial commit
   vars:
     user: "dev"
     user_name: "Richard Attermeyer"
