@@ -7,13 +7,13 @@
     - group: name=admin
     - user: name="{{user}}" shell=/bin/bash password="{{password}}" groups=admin
   roles:
-    - unity-customization
     - dev-tools
     - maven
     - vim 
     - nvm
     - gvm
     - intellij
+    - virtualbox-guest
   vars:
     user: "dev"
     user_name: "Richard Attermeyer"
