@@ -15,6 +15,7 @@
     - gvm
     - intellij
     - virtualbox-guest
+    - xubuntu
   vars:
     user: "dev"
     user_name: "Richard Attermeyer"
