@@ -4,8 +4,9 @@
 - hosts: localhost
   pre_tasks:
     - file: path="{{home_base}}" state=directory mode=0755
+    - group: name=docker 
     - group: name=admin
-    - user: name="{{user}}" shell=/bin/bash password="{{password}}" groups=admin
+    - user: name="{{user}}" shell=/bin/bash password="{{password}}" groups=admin,docker
   roles:
     - dev-tools
     - maven
