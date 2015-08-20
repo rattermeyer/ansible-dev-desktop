@@ -7,7 +7,7 @@
     - group: name=admin
     - user: name="{{user}}" shell=/bin/bash password="{{password}}" groups=admin
   roles:
-    - ubuntu-unity
+    - unity
     - dev-tools
     - maven
     - vim 
