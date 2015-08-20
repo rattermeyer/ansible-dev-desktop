@@ -7,18 +7,14 @@
     - group: name=admin
     - user: name="{{user}}" shell=/bin/bash password="{{password}}" groups=admin
   roles:
-    - unity-customization
+    - ubuntu-unity
     - dev-tools
     - maven
     - vim 
     - nvm
     - gvm
     - intellij
-<<<<<<< HEAD
-=======
     - virtualbox-guest
-    - xubuntu
->>>>>>> d29c63d... initial commit
   vars:
     user: "dev"
     user_name: "Richard Attermeyer"
