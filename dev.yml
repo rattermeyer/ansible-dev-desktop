@@ -15,6 +15,7 @@
     - gvm
     - intellij
     - virtualbox-guest
+    - google-chrome
   vars:
     user: "dev"
     user_name: "Richard Attermeyer"
