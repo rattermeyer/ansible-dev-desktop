@@ -1,0 +1,30 @@
+# vim: noai:ts=2:sw=2:expandtab
+---
+- name: Kubuntu Desktop
+  apt: name=kubuntu-desktop
+  tags: kubuntu
+
+- name: Language packs
+  apt: name="{{item}}"
+  with_items:
+    - kde-l10n-de
+  tags:
+    - kubuntu
+    - localization
+- name: Locale settings
+  command: update-locale LANG=de_DE.UTF-8 LC_MESSAGES=POSIX
+  tags:
+    - localization
+- command: locale-gen
+  tags:
+    - localization
+
+- name: Set up timezone
+  shell: echo "Europe/Berlin" > /etc/timezone  
+  tags:
+    - kubuntu
+    - localization
+- shell: dpkg-reconfigure --frontend noninteractive tzdata
+  tags:
+    - kubuntu
+    - localization
