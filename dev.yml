@@ -16,6 +16,8 @@
     - intellij
     - virtualbox-guest
     - google-chrome
+    - rvm
+    - asciidoc
   vars:
     user: "dev"
     user_name: "Richard Attermeyer"
