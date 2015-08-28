@@ -13,9 +13,12 @@
     - vim 
     - nvm
     - gvm
-    - intellij
+    #    - intellij
     - virtualbox-guest
     - xubuntu
+    #- google-chrome
+    #- rvm
+    - asciidoc
   vars:
     user: "dev"
     user_name: "Richard Attermeyer"
