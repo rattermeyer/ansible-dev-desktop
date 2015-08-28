@@ -3,7 +3,20 @@
 # file dev
 - hosts: localhost
   pre_tasks:
-    - file: path="{{home_base}}" state=directory mode=0755
+    - name: use mirrors
+      lineinfile: dest=/etc/apt/sources.list insertbefore=BOF line={{item}}
+      with_items:
+        - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}} main restricted universe multiverse'"
+        - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-updates main restricted universe multiverse'"
+        - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-backports main restricted universe multiverse'"
+        - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-security main restricted universe multiverse'"
+      register: mirrors
+      tags: configuration
+    - apt: update_cache=true
+      when: mirrors.changed
+      tags: configuration
+    - name: create user
+      file: path="{{home_base}}" state=directory mode=0755
     - group: name=docker 
     - group: name=admin
     - user: name="{{user}}" shell=/bin/bash password="{{password}}" groups=admin,docker
@@ -23,6 +36,7 @@
     user: "dev"
     user_name: "Richard Attermeyer"
     user_email: "richard.attermeyer@gmail.com"
+    ubuntu_release: trusty
     # password: pleasechange --> generate e.g. using mkpasswd --method=SHA-512
     password: "$6$R/NgeKnN$Nlq.TC54GwBbH3oWhonjLDXeGMH56JpnpIvXLzHNHUfvl7/YK8.dxf6BaASaJJh1mWr20OuS9kMEexiLbZ9xQ/"
     home_base: "/home"
