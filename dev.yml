@@ -20,6 +20,9 @@
     - group: name=docker 
     - group: name=admin
     - user: name="{{user}}" shell=/bin/bash password="{{password}}" groups=admin,docker
+    - name: configure apt-proxy
+      template: src=templates/01proxy.j2 dest={{apt_proxy_conf}}
+      when: use_apt_proxy == true
   roles:
     - dev-tools
     - maven
@@ -32,6 +35,10 @@
     #- google-chrome
     #- rvm
     - asciidoc
+  post_tasks:
+    - name: remove apt-proxy
+      file: dest="{{apt_proxy_conf}}" state=absent
+      when: remove_apte_proxy == true
   vars:
     user: "dev"
     user_name: "Richard Attermeyer"
@@ -41,3 +48,5 @@
     password: "$6$R/NgeKnN$Nlq.TC54GwBbH3oWhonjLDXeGMH56JpnpIvXLzHNHUfvl7/YK8.dxf6BaASaJJh1mWr20OuS9kMEexiLbZ9xQ/"
     home_base: "/home"
     home: "{{home_base}}/{{user}}"
+  var_files:
+    - /home/vagrant/external_vars.yml
