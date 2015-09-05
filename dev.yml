@@ -3,6 +3,7 @@
 # file dev
 - hosts: localhost
   pre_tasks:
+    - debug: msg="use apt proxy {{ use_apt_proxy }}"
     - name: use mirrors
       lineinfile: dest=/etc/apt/sources.list insertbefore=BOF line={{item}}
       with_items:
