@@ -48,5 +48,5 @@
     password: "$6$R/NgeKnN$Nlq.TC54GwBbH3oWhonjLDXeGMH56JpnpIvXLzHNHUfvl7/YK8.dxf6BaASaJJh1mWr20OuS9kMEexiLbZ9xQ/"
     home_base: "/home"
     home: "{{home_base}}/{{user}}"
-  var_files:
+  vars_files:
     - /home/vagrant/external_vars.yml
