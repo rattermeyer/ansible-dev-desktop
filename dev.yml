@@ -25,17 +25,17 @@
       template: src=templates/01proxy.j2 dest={{apt_proxy_conf}}
       when: use_apt_proxy == true
   roles:
-    - dev-tools
-    - maven
-    - vim 
-    - nvm
-    - gvm
-    #    - intellij
-    - virtualbox-guest
     - xubuntu
+    #- dev-tools
+    #- maven
+    #- vim 
+    #- nvm
+    #- gvm
+    #    - intellij
     #- google-chrome
     #- rvm
-    - asciidoc
+    #- asciidoc
+    #- virtualbox-guest
   post_tasks:
     - name: remove apt-proxy
       file: dest="{{apt_proxy_conf}}" state=absent
