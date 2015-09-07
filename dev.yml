@@ -26,22 +26,22 @@
       when: use_apt_proxy == true
   roles:
     - xubuntu
-    #- dev-tools
-    #- maven
-    #- vim 
-    #- nvm
-    #- gvm
-    #    - intellij
-    #- google-chrome
-    #- rvm
-    #- asciidoc
-    #- virtualbox-guest
+    - dev-tools
+    - maven
+    - vim 
+    - nvm
+    - gvm
+    - intellij
+    - google-chrome
+      #    - rvm
+    - asciidoc
+    - virtualbox-guest
   post_tasks:
     - name: remove apt-proxy
       file: dest="{{apt_proxy_conf}}" state=absent
       when: remove_apte_proxy == true
   vars:
-    user: "dev"
+    user: "richard"
     user_name: "Richard Attermeyer"
     user_email: "richard.attermeyer@gmail.com"
     ubuntu_release: trusty
@@ -50,4 +50,4 @@
     home_base: "/home"
     home: "{{home_base}}/{{user}}"
   vars_files:
-    - /home/vagrant/external_vars.yml
+    - /home/richard/external_vars.yml
