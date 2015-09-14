@@ -13,9 +13,11 @@
         - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-security main restricted universe multiverse'"
       register: mirrors
       tags: configuration
-    - apt: update_cache=true
+    - apt: update_cache=true 
       when: mirrors.changed
       tags: configuration
+    - name: Pre-condition to create user
+      apt: name=whois
     - name: create user
       file: path="{{home_base}}" state=directory mode=0755
     - group: name=docker 
@@ -34,14 +36,15 @@
     - intellij
     - google-chrome
       #    - rvm
-    - asciidoc
+      # - asciidoc
     - virtualbox-guest
+    - dmi-customizations
   post_tasks:
     - name: remove apt-proxy
       file: dest="{{apt_proxy_conf}}" state=absent
-      when: remove_apte_proxy == true
+      when: remove_apt_proxy == true
   vars:
-    user: "richard"
+    user: "dev"
     user_name: "Richard Attermeyer"
     user_email: "richard.attermeyer@gmail.com"
     ubuntu_release: trusty
