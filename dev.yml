@@ -35,10 +35,9 @@
     - gvm
     - intellij
     - google-chrome
-      #    - rvm
-      # - asciidoc
+    - rvm
+    - asciidoc
     - virtualbox-guest
-    - dmi-customizations
   post_tasks:
     - name: remove apt-proxy
       file: dest="{{apt_proxy_conf}}" state=absent
@@ -53,4 +52,4 @@
     home_base: "/home"
     home: "{{home_base}}/{{user}}"
   vars_files:
-    - /home/richard/external_vars.yml
+    - /home/vagrant/external_vars.yml
