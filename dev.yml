@@ -27,7 +27,8 @@
       template: src=templates/01proxy.j2 dest={{apt_proxy_conf}}
       when: use_apt_proxy == true
   roles:
-    - xubuntu
+    #- xubuntu
+    - ubuntu-desktop
     - dev-tools
     - maven
     - vim 
