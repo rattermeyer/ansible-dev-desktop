@@ -28,16 +28,18 @@
       when: use_apt_proxy == true
   roles:
     - xubuntu
+    - virtualbox-guest
+    - {role: angstwad.docker_ubuntu, docker_group_members: ["{{user}}"]}
+    - jekyll
+    - vim 
+    - google-chrome
     - dev-tools
     - maven
-    - vim 
     - nvm
     - gvm
-    - intellij
-    - google-chrome
     - rvm
     - asciidoc
-    - virtualbox-guest
+    - intellij
   post_tasks:
     - name: remove apt-proxy
       file: dest="{{apt_proxy_conf}}" state=absent
