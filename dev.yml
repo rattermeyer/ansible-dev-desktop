@@ -13,6 +13,7 @@
         - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-security main restricted universe multiverse'"
       register: mirrors
       tags: configuration
+      when: use_mirror
     - apt: update_cache=true 
       when: mirrors.changed
       tags: configuration
@@ -68,5 +69,6 @@
       - intellij
       - rvm
       - asciidoc
+    use_mirror: false
   vars_files:
-    - /home/vagrant/external_vars.yml
+    - external_vars.yml
