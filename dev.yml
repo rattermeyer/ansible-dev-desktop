@@ -33,13 +33,15 @@
     - {role: xubuntu, when: desktop == 'xubuntu'}
     - {role: unity, when: desktop == 'unity'}
     - {role: vim, when: '"vim" in roles_included' }
+    - {role: atom, when: '"atom" in roles_included' }
     - {role: jekyll, when: '"jekyll" in roles_included' }
     - {role: virtualbox-guest, when: '"virtualbox-guest" in roles_included' }
     - {role: google-chrome, when: '"google-chrome" in roles_included' }
+    - {role: productivity, when: '"productivity" in roles_included' }
     - {role: dev-tools, when: '"dev-tools" in roles_included' }
     - {role: maven, when: '"maven" in roles_included' }
     - {role: nvm, when: '"nvm" in roles_included' }
-    - {role: gvm, when: '"gvm" in roles_included' }
+    - {role: sdkman, when: '"sdkman" in roles_included' }
     - {role: intellij, when: '"intellij" in roles_included' }
     - {role: rvm, when: '"rvm" in roles_included' }
     - {role: asciidoc, when: '"asciidoc" in roles_included' }
@@ -59,16 +61,19 @@
     desktop: "xubuntu"
     roles_included:
       - vim 
+      - atom 
       - jekyll
       - virtualbox-guest
       - google-chrome
       - dev-tools
       - maven
       - nvm
-      - gvm
+      - sdkman
       - intellij
       - rvm
       - asciidoc
+      - productivity
     use_mirror: false
+    apt_proxy_conf: "/etc/apt/apt.conf.d/01proxy"
   vars_files:
     - external_vars.yml
