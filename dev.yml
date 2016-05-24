@@ -7,10 +7,10 @@
     - name: use mirrors
       lineinfile: dest=/etc/apt/sources.list insertbefore=BOF line={{item}}
       with_items:
-        - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}} main restricted universe multiverse'"
-        - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-updates main restricted universe multiverse'"
-        - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-backports main restricted universe multiverse'"
-        - "'deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-security main restricted universe multiverse'"
+        - "deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}} main restricted universe multiverse"
+        - "deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-updates main restricted universe multiverse"
+        - "deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-backports main restricted universe multiverse"
+        - "deb mirror://mirrors.ubuntu.com/mirrors.txt {{ubuntu_release}}-security main restricted universe multiverse"
       register: mirrors
       tags: configuration
       when: use_mirror
